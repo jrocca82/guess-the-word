@@ -6,8 +6,10 @@ const guessesLeft = document.querySelector(".remaining");
 const numGuessesLeft = document.querySelector(".remaining span");
 const message = document.querySelector(".message");
 const playAgain = document.querySelector(".play-again");
+
+
 let remainingGuesses = 8;
-const guessedLetterString = [];
+let guessedLetterString = [];
 
 //Fetch Words
 const getWord = async function(){
@@ -46,6 +48,20 @@ guessLetterButton.addEventListener("click", function (e){
   }
   //Clear input
   userInput.value = "";
+});
+
+//Input letters pressing enter key
+guessLetterButton.addEventListener("keypress", function (e) {
+  if (e.key === "Enter"){
+      e.preventDefault();
+      message.innerText = "";
+      const guess = userInput.value;
+      const validGuess = validateUserInput(guess);
+      if (validGuess){
+        makeGuess(guess);
+      }
+      userInput.value = "";
+    };
 });
 
 //Function to validate user input
@@ -123,7 +139,7 @@ const countGuessesRemaining = function(guess){
 
   if (remainingGuesses === 0){
     message.innerHTML = `Game over! The word was <span class="highlight">${word}</span>`;
-    numGuessesLeft.innerText = `0 guesses`;
+    startOver();
   } else if (remainingGuesses === 1){
     message.innerText = "You only have 1 guess left!";
     numGuessesLeft.innerText = `1 guess`
@@ -137,5 +153,32 @@ const checkWin = function(){
   if (word.toUpperCase() === wordInProgress.innerText){
     message.classList.add("win");
     message.innerHTML = `<p class="highlight">You guessed the word! Congratulations!</p>`;
+
+    startOver();
   }
 };
+
+//Play again
+const startOver = function() {
+  guessLetterButton.classList.add("hide");
+  guessesLeft.classList.add("hide");
+  guessedLetters.classList.add("hide");
+  playAgain.classList.remove("hide");
+};
+
+//Pressing play again buttong
+playAgain.addEventListener("click", function(){
+  message.classList.remove("win");
+  guessedLetters.innerHTML = "";
+  message.innerText = "";
+  guessedLetterString= [];
+  remainingGuesses = 8;
+  numGuessesLeft.innerText = `${remainingGuesses} guesses`;
+
+  guessLetterButton.classList.remove("hide");
+  guessesLeft.classList.remove("hide");
+  guessedLetters.classList.remove("hide");
+  playAgain.classList.add("hide");
+
+  getWord();
+});
