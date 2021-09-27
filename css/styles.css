@@ -7,15 +7,14 @@ body {
   align-items: center;
   justify-content: center;
   margin: 0;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Quicksand", sans-serif;
   font-style: normal;
   font-size: 20px;
   line-height: 150%;
-  background-color: #dff6f6;
-  background-image: url("../img/bg.png");
+  background-color: #43d6d6;
   background-size: 800px;
   background-repeat: repeat;
-  color: #305050;
+  color: #525252;
 }
 
 .logo {
@@ -27,10 +26,6 @@ h1 {
   width: 100%;
   padding-top: 1em;
   margin: 0;
-  font-family: "Unlock", sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 44px;
   text-align: center;
 }
 
@@ -51,7 +46,7 @@ h1 {
 
 .highlight {
   padding: 0.25em;
-  background: #ffe2d6;
+  background: #fff;
   font-size: 1em;
 }
 
@@ -62,7 +57,7 @@ h1 {
 
 .word-in-progress {
   letter-spacing: 15px;
-  color: #28bdbd;
+  color: #525252;
   font-size: 30px;
 }
 
@@ -99,13 +94,13 @@ input {
   font-size: 1.5em;
   margin-top: 0.5em;
   padding: 0.5em;
-  border: 3px solid #28bdbd;
+  border: 3px solid #525252;
 }
 
 input:active,
 input:focus {
   outline: 0;
-  border: 4px solid #28bdbd;
+  border: 4px solid #525252;
 }
 
 .guess,
@@ -114,7 +109,7 @@ input:focus {
   border-radius: 50px;
   margin-top: 1em;
   color: #fff;
-  background: #ff8d5c;
+  background: #fb8a87;
   font-size: 1em;
   align-self: center;
   outline: none;
@@ -137,7 +132,7 @@ input:focus {
 /* animatied background */
 .win {
   padding: 0 1em;
-  background: linear-gradient(-45deg, #ff9d64, #f5620c);
+  background: linear-gradient(-45deg, #fedad9, #fb8a87);
   background-size: 400% 400%;
   animation: gradient 2s ease infinite;
 }
